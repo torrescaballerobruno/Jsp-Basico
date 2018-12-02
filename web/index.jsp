@@ -16,8 +16,15 @@
     <body>
         <h1>Hello World!</h1>
         <%
-            Conexion cn = new Conexion();
-            cn.conect();
+          Connection c = null;
+      try {
+         Class.forName("org.postgresql.Driver");
+         c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/proyecto","proyecto", "12345");
+      } catch (Exception e) {
+         out.println(e.getClass().getName()+": "+e.getMessage());
+      }
+      out.println("Opened database successfully");
+      
         %>
     </body>
 </html>

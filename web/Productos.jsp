@@ -9,12 +9,12 @@
    </head>
 
    <body>
-      <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
-         url = "jdbc:mysql://localhost/bd_bruno"
-         user = ""  password = ""/>
+      <sql:setDataSource var = "snapshot" driver = "org.postgresql.Driver"
+         url = "jdbc:postgresql://localhost:5432/proyecto"
+         user = "proyecto"  password = "12345"/>
  
       <sql:query dataSource = "${snapshot}" var = "result">
-         SELECT * from empleados;
+         SELECT * from usuario;
       </sql:query>
  
       <table border = "1" width = "100%">
@@ -27,10 +27,10 @@
          
          <c:forEach var = "row" items = "${result.rows}">
             <tr>
-               <td><c:out value = "${row.id_emp}"/></td>
+               <td><c:out value = "${row.id}"/></td>
                <td><c:out value = "${row.nombre}"/></td>
-               <td><c:out value = "${row.ap_pat}"/></td>
-               <td><c:out value = "${row.ap_mat}"/></td>
+               <td><c:out value = "${row.ap_paterno}"/></td>
+               <td><c:out value = "${row.edad}"/></td>
             </tr>
          </c:forEach>
       </table>

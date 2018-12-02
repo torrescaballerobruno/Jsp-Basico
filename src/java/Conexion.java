@@ -10,7 +10,7 @@ public class Conexion {
           Connection c = null;
       try {
          Class.forName("org.postgresql.Driver");
-         c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/erp","ERPUser", "ERPUser");
+         c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/proyecto","ERPUser", "ERPUser");
       } catch (Exception e) {
          e.printStackTrace();
          System.err.println(e.getClass().getName()+": "+e.getMessage());
@@ -18,8 +18,8 @@ public class Conexion {
       }
       System.out.println("Opened database successfully");
     }
-//    public static void main(String[] args) {
-//        Conexion cn = new Conexion();
-//        cn.conect();
-//    }
+    public static void main(String[] args) {
+        Conexion cn = new Conexion();
+        cn.conect();
+    }
 }
