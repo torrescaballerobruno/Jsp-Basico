@@ -78,10 +78,16 @@ public class Conexion {
     }
 
     public List buscarUsuarios(){
+        return bU(false);
+    }
+
+    public List bU(boolean filtrado){
         List<Usuario> list = new ArrayList();
         try{
             StringBuilder sb = new StringBuilder();
             sb.append(" SELECT * FROM usuario ");
+            if(filtrado)
+                sb.append(" order by nombre ");
             Statement st = c.createStatement();
             ResultSet rs = st.executeQuery(sb.toString());
             while(rs.next()){
@@ -101,11 +107,25 @@ public class Conexion {
         return list;
     }
 
+    public List buscarUsuariosOrdenados(){
+        return bU(true);
+    }
+
+    public List buscarArticulosOrdenados(){
+        return bA(true);
+    }
+
     public List buscarArticulos(){
+        return bA(false);
+    }
+
+    public List bA(boolean filtrado){
         List<Articulo> list = new ArrayList();
         try{
             StringBuilder sb = new StringBuilder();
             sb.append(" SELECT * FROM articulo ");
+            if(filtrado)
+                sb.append(" order by nombre ");
             Statement st = c.createStatement();
             ResultSet rs = st.executeQuery(sb.toString());
             while(rs.next()){
