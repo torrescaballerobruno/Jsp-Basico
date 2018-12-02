@@ -27,6 +27,45 @@ public class Conexion {
         }
     }
 
+    public boolean insertarUsuario(Usuario usr){
+        try{
+            StringBuilder sb = new StringBuilder();
+            if(usr.getNombre() != null){
+                sb.append(" INSERT INTO usuario SELECT COALESCE(max(id)+1,1) , '").append(usr.getNombre()).append("' ,'");
+                sb.append(usr.getPaterno()).append("','").append(usr.getMaterno()).append("',").append(usr.getEdad()).append(",'");
+                sb.append(usr.getSexo()).append("','").append(usr.getDireccion()).append("','").append(usr.getEmail()).append("','");
+                sb.append(usr.getTelefono()).append("' from usuario ");
+                Statement s = c.createStatement();
+                s.executeQuery(sb.toString());
+                return true;
+            }else{
+                return false;
+            }
+        }catch(Exception e){
+            return false;
+        }
+    }
+    
+    public boolean insertarArticulo(Articulo art){
+        try{
+            StringBuilder sb = new StringBuilder();
+
+            if(art.getNombre() != null && art.getPrecio()!= null){
+                
+                sb.append(" INSERT INTO articulo SELECT COALESCE(max(id)+1,1) , '").append(art.getNombre()).append("' ,'");
+                sb.append(art.getDescripcion()).append("',").append(art.getPrecio()).append(",").append(art.getCantidad());
+                sb.append(" from articulo ");
+                Statement s = c.createStatement();
+                s.execute(sb.toString());
+                return true;
+            }else{
+                return false;
+            }
+        }catch(Exception e){
+            return false;
+        }
+    }
+
     public void eliminarArticulo(Integer id){
         try{
             StringBuilder sb = new StringBuilder();
