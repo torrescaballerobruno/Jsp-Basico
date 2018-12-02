@@ -14,23 +14,27 @@
          user = "proyecto"  password = "12345"/>
  
       <sql:query dataSource = "${snapshot}" var = "result">
-         SELECT * from usuario;
+         SELECT * from articulo;
       </sql:query>
  
       <table border = "1" width = "100%">
          <tr>
-            <th>Emp ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Age</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
          </tr>
          
          <c:forEach var = "row" items = "${result.rows}">
             <tr>
-               <td><c:out value = "${row.id}"/></td>
                <td><c:out value = "${row.nombre}"/></td>
-               <td><c:out value = "${row.ap_paterno}"/></td>
-               <td><c:out value = "${row.edad}"/></td>
+               <td><c:out value = "${row.descripcion}"/></td>
+               <td><c:out value = "${row.precio}"/></td>
+               <td><c:out value = "${row.cantidad}"/></td>
+               <td><button value="Editar_${row.id}">Editar</button></td>
+               <td><button value="Eliminar_${row.id}">Eliminar</button></td>
             </tr>
          </c:forEach>
       </table>

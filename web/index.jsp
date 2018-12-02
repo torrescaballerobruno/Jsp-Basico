@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*" %>
-<%@page import="java.sql.*" %>
+<%@page import="Clases.*" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,6 +16,8 @@
     <body>
         <h1>Hello World!</h1>
         <%
+            Conexion con = new Conexion();
+            con.conect();
           Connection c = null;
       try {
          Class.forName("org.postgresql.Driver");
