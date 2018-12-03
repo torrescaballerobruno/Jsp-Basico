@@ -9,6 +9,7 @@
    </head>
 
    <body>
+      <jsp:include page = "header.jsp"/>
       <sql:setDataSource var = "snapshot" driver = "org.postgresql.Driver"
          url = "jdbc:postgresql://localhost:5432/proyecto"
          user = "proyecto"  password = "12345"/>

@@ -1,6 +1,8 @@
-﻿CREATE DATABASE proyecto
+﻿CREATE DATABASE proyecto;
 
 --crear un rol que sea proyecto y su contraseña sea 12345
+
+CREATE USER proyecto WITH PASSWORD '12345';
 
 CREATE TABLE public.usuario
 (
