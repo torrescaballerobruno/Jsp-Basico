@@ -7,7 +7,18 @@
    <head>
       <title>SELECT Operation</title>
    </head>
-
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <style>
+    body,h1,h5 {font-family: "Raleway", sans-serif}
+    body, html {height: 100%}
+    .bgimg {
+        background-image: url('/w3images/onepage_restaurant.jpg');
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+    </style>
    <body>
       <jsp:include page = "header.jsp"/>
       <sql:setDataSource var = "snapshot" driver = "org.postgresql.Driver"
@@ -39,6 +50,7 @@
             </tr>
          </c:forEach>
       </table>
+         <button value="Nuevo">Nuevo Articulo</button>
  
    </body>
 </html>
